@@ -56,8 +56,8 @@ class Kohana_Session_Redis extends Session
             if ( ! $this->_id) 
             {
                 $this->_regenerate();
+                Cookie::set($this->_cookie_name, $this->_id, $this->_lifetime);
             }
-            Cookie::set($this->_cookie_name, $this->_id, $this->_lifetime);
         }
 
         return $this->_id;
